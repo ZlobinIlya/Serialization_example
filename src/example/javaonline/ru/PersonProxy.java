@@ -1,3 +1,5 @@
+package example.javaonline.ru;
+
 public class PersonProxy implements java.io.Serializable
 {
 	private static final long serialVersionUID = 1L;

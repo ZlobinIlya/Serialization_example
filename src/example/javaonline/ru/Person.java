@@ -1,3 +1,5 @@
+package example.javaonline.ru;
+
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;

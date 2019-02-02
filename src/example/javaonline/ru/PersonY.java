@@ -1,3 +1,5 @@
+package example.javaonline.ru;
+
 import java.io.Serializable;
 
 public class PersonY implements Serializable

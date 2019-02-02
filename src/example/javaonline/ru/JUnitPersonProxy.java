@@ -1,3 +1,5 @@
+package example.javaonline.ru;
+
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -6,9 +8,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import example.PersonProxy;
-import example.PersonY;
-
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -21,8 +21,8 @@ public class JUnitPersonProxy
 	private  static  final  String  LAST_NAME  = "Иванов"  ;
 	private  static  final  int     AGE_Alex   = 39        ;
 	
-	private  static         PersonY alex       = null      ;
-	private  static         PersonY olga       = null      ;
+	private  static PersonY alex       = null      ;
+	private  static PersonY olga       = null      ;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -63,12 +63,12 @@ public class JUnitPersonProxy
         	PersonY olga = (PersonY) ois.readObject();
         	ois.close();
 	            
-        	assertEquals(alex.getFirstName(), FNAME_Alex);
-        	assertEquals(alex.getLastName() , LAST_NAME);
-        	assertEquals(olga.getFirstName(), FNAME_Olga);
-        	assertEquals(olga.getFirstName(), FNAME_Olga);
-        	assertEquals(alex.getAge()      , AGE_Alex);
-        	assertEquals(alex.getSpouse().getFirstName(), FNAME_Olga);
+        	Assert.assertEquals(alex.getFirstName(), FNAME_Alex);
+        	Assert.assertEquals(alex.getLastName() , LAST_NAME);
+        	Assert.assertEquals(olga.getFirstName(), FNAME_Olga);
+        	Assert.assertEquals(olga.getFirstName(), FNAME_Olga);
+        	Assert.assertEquals(alex.getAge()      , AGE_Alex);
+        	Assert.assertEquals(alex.getSpouse().getFirstName(), FNAME_Olga);
         	// Описание объекта
 //        	fail(alex.toString());
         } catch (Exception e) {

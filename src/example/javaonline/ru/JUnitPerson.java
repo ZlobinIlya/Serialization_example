@@ -1,3 +1,5 @@
+package example.javaonline.ru;
+
 import static org.junit.Assert.*;
 
 import java.io.File;
@@ -17,11 +19,12 @@ import java.security.SignatureException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 
-import example.Person;
+
 
 public class JUnitPerson
 {
@@ -31,8 +34,8 @@ public class JUnitPerson
 	private  static  final  String  LAST_NAME  = "Иванов"  ;
 	private  static  final  int     AGE_Alex   = 39        ;
 	
-	private  static         Person  alex       = null      ;
-	private  static         Person  olga       = null      ;
+	private  static Person alex       = null      ;
+	private  static Person olga       = null      ;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -71,12 +74,12 @@ public class JUnitPerson
         	// Проконтролировать значения объекта
         	// olga.validateObject();
 	            
-        	assertEquals(alex.getFirstName(), FNAME_Alex);
-        	assertEquals(alex.getLastName() , LAST_NAME);
-        	assertEquals(olga.getFirstName(), FNAME_Olga);
-        	assertEquals(olga.getFirstName(), FNAME_Olga);
-        	assertEquals(alex.getAge()      , AGE_Alex);
-        	assertEquals(alex.getSpouse().getFirstName(), FNAME_Olga);
+        	Assert.assertEquals(alex.getFirstName(), FNAME_Alex);
+        	Assert.assertEquals(alex.getLastName() , LAST_NAME);
+        	Assert.assertEquals(olga.getFirstName(), FNAME_Olga);
+        	Assert.assertEquals(olga.getFirstName(), FNAME_Olga);
+        	Assert.assertEquals(alex.getAge()      , AGE_Alex);
+        	Assert.assertEquals(alex.getSpouse().getFirstName(), FNAME_Olga);
         	// Описание объекта
         	// fail(alex.toString());
         } catch (Exception e) {
@@ -108,7 +111,7 @@ public class JUnitPerson
 		    
 		    // Retrieve the object
 		    unsignedObject = (String) signedObject.getObject();
-        	assertEquals("Проверка описания 'подписанного' объекта", unsignedObject, alex.toString());
+        	Assert.assertEquals("Проверка описания 'подписанного' объекта", unsignedObject, alex.toString());
 		     
 	    } catch (SignatureException e) {
 	    } catch (InvalidKeyException e) {
